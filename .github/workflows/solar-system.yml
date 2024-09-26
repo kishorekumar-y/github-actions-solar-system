@@ -27,6 +27,11 @@ jobs:
          - name: coverage
            run: npm run code-coverage
            continue-on-error: true
+         - uses: actions/upload-artifact@v3
+           with:
+             name: Code-Coverage-Result
+             path: coverage
+             retention-days: 5        
     unit-testing:
         name: Unit Testing
         runs-on: ubuntu-latest
