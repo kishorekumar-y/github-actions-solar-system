@@ -12,6 +12,21 @@ env:
    MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 
 jobs:
+    code-coverage:
+       name: code coverage
+       runs-on: ubuntu-latest
+       steps:
+         - name: checkout repository
+           uses: actions/checkout@v4
+         - name: setup nodejs
+           uses: actions/setup-node@v3
+           with:
+             node-version: 18
+         - name: install npn
+           run: npm install
+         - name: coverage
+           run: npm run code-coverage
+           continue-on-error: true
     unit-testing:
         name: Unit Testing
         runs-on: ubuntu-latest
