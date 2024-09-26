@@ -43,7 +43,7 @@ jobs:
          with: 
            version: v1.26.0
        - run: |
-             echo "${{ secrets.KUBECONFIG_B64 }}" | base64 --decode > ~/.kube/config
+             echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
              
        - run: kubectl version --short -o yaml
        - run: >
